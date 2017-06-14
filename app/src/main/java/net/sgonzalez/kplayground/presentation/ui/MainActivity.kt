@@ -3,10 +3,9 @@ package net.sgonzalez.kplayground.presentation.ui
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.Toolbar
-import android.widget.Toast
 import net.sgonzalez.kplayground.R
 import net.sgonzalez.kplayground.instrumentation.dagger.component.UiComponent
-import net.sgonzalez.kplayground.instrumentation.extensions.showToast
+import net.sgonzalez.kplayground.instrumentation.extensions.showDebugInfo
 import net.sgonzalez.kplayground.presentation.presenter.MainPresenter
 import net.sgonzalez.kplayground.presentation.presenter.MainPresenter.View
 import javax.inject.Inject
@@ -36,6 +35,6 @@ class MainActivity : BaseActivity(), View {
   }
 
   override fun toast(text: String) {
-    showToast(this, text)
+    showDebugInfo(text)
   }
 }
