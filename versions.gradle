@@ -1,0 +1,14 @@
+ext {
+  androidSupportVersion = '26.0.0-alpha1'
+  ankoSupportVersion = '0.10.1'
+  constraintLayoutSupportVersion = '1.0.2'
+  dagger2Version = '2.7'
+  espressoCoreVersion = '2.2.2'
+  jsr250AnnotationsVersion = '1.0'
+  junitVersion = '4.12'
+  kotlinVersion = '1.1.2-5'
+  picassoVersion = '2.5.2'
+  retrofitVersion = '2.0.0-beta2'
+  rxAndroidVersion = '1.2.1'
+  rxKotlinVersion = '0.60.0'
+}

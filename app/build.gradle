@@ -1,15 +1,19 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply from: "${rootDir}/versions.gradle"
 
 android {
-  compileSdkVersion 25
+  compileSdkVersion 26
   buildToolsVersion "25.0.3"
+
   defaultConfig {
     applicationId "net.sgonzalez.kplayground"
     minSdkVersion 15
-    targetSdkVersion 25
+    targetSdkVersion 26
     versionCode 1
     versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
     release {
@@ -17,13 +21,51 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+  dexOptions {
+    javaMaxHeapSize "2048M"
+  }
+  compileOptions.incremental = false
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-    exclude group: 'com.android.support', module: 'support-annotations'
+  // Kotlin and Anko
+  compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}"
+  compile "org.jetbrains.anko:anko-support-v4:${ankoSupportVersion}"
+
+  // Anko's DSL dependencies
+  //  compile "org.jetbrains.anko:anko-sdk15:0.7.1" // sdk19, sdk21, sdk23 are also available
+  //  compile "org.jetbrains.anko:anko-recyclerview-v7:${ankoSupportVersion}"
+  //  compile "org.jetbrains.anko:anko-percent:${ankoSupportVersion}"
+  //  compile "org.jetbrains.anko:anko-gridlayout-v7:${ankoSupportVersion}"
+  //  compile "org.jetbrains.anko:anko-design:${ankoSupportVersion}"
+  //  compile "org.jetbrains.anko:anko-cardview-v7:${ankoSupportVersion}"
+  //  compile "org.jetbrains.anko:anko-appcompat-v7:${ankoSupportVersion}"
+
+  // Android
+  compile "com.android.support:appcompat-v7:${androidSupportVersion}"
+  compile "com.android.support:recyclerview-v7:${androidSupportVersion}"
+  compile "com.android.support:design:${androidSupportVersion}"
+  compile "com.android.support.constraint:constraint-layout:${constraintLayoutSupportVersion}"
+
+  // Dagger 2
+  compile "com.google.dagger:dagger:${dagger2Version}"
+  kapt "com.google.dagger:dagger-compiler:${dagger2Version}"
+  provided "javax.annotation:jsr250-api:${jsr250AnnotationsVersion}"
+
+  // Retrofit
+  compile "com.squareup.retrofit:retrofit:${retrofitVersion}"
+  compile "com.squareup.retrofit:converter-gson:${retrofitVersion}"
+  compile "com.squareup.retrofit:adapter-rxjava:${retrofitVersion}"
+
+  // Picasso
+  compile "com.squareup.picasso:picasso:${picassoVersion}"
+
+  // Rx
+  compile "io.reactivex:rxandroid:${rxAndroidVersion}"
+  compile "io.reactivex:rxkotlin:${rxKotlinVersion}"
+
+  testCompile "junit:junit:${junitVersion}"
+  androidTestCompile("com.android.support.test.espresso:espresso-core:${espressoCoreVersion}", {
+    exclude group: "com.android.support", module: "support-annotations"
   })
-  compile 'com.android.support:appcompat-v7:25.3.1'
-  testCompile 'junit:junit:4.12'
 }
