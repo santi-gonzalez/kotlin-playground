@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+
+app/src/main/java/net/sgonzalez/kplayground/data/response/_Keys\.kt
+
+app/src/main/java/net/sgonzalez/kplayground/domain/_Keys\.kt

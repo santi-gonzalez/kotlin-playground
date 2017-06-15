@@ -5,6 +5,10 @@ import net.sgonzalez.kplayground.data.repository.TwitterRepository
 import javax.inject.Inject
 
 class TwitterRepositoryImpl @Inject constructor(val twitterLocalDataSource: TwitterLocalDataSource) : TwitterRepository {
+  override fun authenticate(): String {
+    return twitterLocalDataSource.authenticate()
+  }
+
   override fun mockTask(mockText: String): String {
     return twitterLocalDataSource.mockTask(mockText)
   }

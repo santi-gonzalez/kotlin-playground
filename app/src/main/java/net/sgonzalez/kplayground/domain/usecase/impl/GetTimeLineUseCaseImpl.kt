@@ -5,8 +5,8 @@ import net.sgonzalez.kplayground.domain.usecase.GetTimeLineUseCase
 import javax.inject.Inject
 
 class GetTimeLineUseCaseImpl @Inject constructor(val twitterRepository: TwitterRepository) : GetTimeLineUseCase() {
-  lateinit var onResult: (String) -> Unit
-  lateinit var mockText: String
+  lateinit private var onResult: (String) -> Unit
+  lateinit private var mockText: String
 
   override fun execute(mockText: String,
                        onResult: (String) -> Unit) {
@@ -15,11 +15,11 @@ class GetTimeLineUseCaseImpl @Inject constructor(val twitterRepository: TwitterR
     launch()
   }
 
-  override fun onWork(): String {
+  override fun work(): String {
     return twitterRepository.mockTask(mockText)
   }
 
-  override fun onAnswer(result: String) {
+  override fun answer(result: String) {
     onResult.invoke(result)
   }
 }

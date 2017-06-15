@@ -10,14 +10,14 @@ abstract class UseCase<T> {
 
   fun launch() {
     workerThreadExecutor.execute {
-      val result = onWork()
+      val result = work()
       uiThreadExecutor.execute {
-        onAnswer(result)
+        answer(result)
       }
     }
   }
 
-  abstract fun onWork(): T
+  abstract fun work(): T
 
-  abstract fun onAnswer(result: T)
+  abstract fun answer(result: T)
 }
