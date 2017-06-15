@@ -52,10 +52,11 @@ dependencies {
   kapt "com.google.dagger:dagger-compiler:${dagger2Version}"
   provided "javax.annotation:jsr250-api:${jsr250AnnotationsVersion}"
 
-  // Retrofit
-  compile "com.squareup.retrofit:retrofit:${retrofitVersion}"
-  compile "com.squareup.retrofit:converter-gson:${retrofitVersion}"
-  compile "com.squareup.retrofit:adapter-rxjava:${retrofitVersion}"
+  // Retrofit / OkHttp
+  compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+  compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+  compile "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
+  compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
 
   // Picasso
   compile "com.squareup.picasso:picasso:${picassoVersion}"
