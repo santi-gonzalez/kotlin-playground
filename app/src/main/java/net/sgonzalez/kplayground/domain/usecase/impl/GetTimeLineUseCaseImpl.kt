@@ -8,7 +8,7 @@ class GetTimeLineUseCaseImpl @Inject constructor(val twitterRepository: TwitterR
   lateinit private var onResult: (String) -> Unit
   lateinit private var mockText: String
 
-  override fun execute(mockText: String,
+  override fun ask(mockText: String,
                        onResult: (String) -> Unit) {
     this.onResult = onResult
     this.mockText = mockText
@@ -16,10 +16,13 @@ class GetTimeLineUseCaseImpl @Inject constructor(val twitterRepository: TwitterR
   }
 
   override fun work(): String {
-    return twitterRepository.mockTask(mockText)
+      println("on work")
+    return twitterRepository.authenticate()
+//      return twitterRepository.mockTask(mockText)
   }
 
   override fun answer(result: String) {
+      println("on answer")
     onResult.invoke(result)
   }
 }

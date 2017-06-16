@@ -6,6 +6,7 @@ import javax.inject.Inject
 
 class TwitterRepositoryImpl @Inject constructor(val twitterLocalDataSource: TwitterLocalDataSource) : TwitterRepository {
   override fun authenticate(): String {
+      println("authenticate")
     return twitterLocalDataSource.authenticate()
   }
 

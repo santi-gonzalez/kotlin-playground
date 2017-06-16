@@ -5,8 +5,8 @@ import net.sgonzalez.kplayground.domain.execution.WorkerThreadExecutor
 import javax.inject.Inject
 
 abstract class UseCase<T> {
-  @Inject lateinit protected var uiThreadExecutor: UiThreadExecutor
-  @Inject lateinit protected var workerThreadExecutor: WorkerThreadExecutor
+  @Inject lateinit var uiThreadExecutor: UiThreadExecutor
+  @Inject lateinit var workerThreadExecutor: WorkerThreadExecutor
 
   fun launch() {
     workerThreadExecutor.execute {
