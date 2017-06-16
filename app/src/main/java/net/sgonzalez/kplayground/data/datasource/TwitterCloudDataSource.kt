@@ -1,5 +1,7 @@
 package net.sgonzalez.kplayground.data.datasource
 
+import net.sgonzalez.kplayground.data.response.OAuthResponse
+
 interface TwitterCloudDataSource : DataSource {
-    fun authenticate(): String
+    fun authenticate(): OAuthResponse
 }
