@@ -6,8 +6,7 @@ import net.sgonzalez.kplayground.instrumentation.dagger.scope.AppScope
 import java.util.concurrent.Executor
 import javax.inject.Inject
 
-@AppScope
-class UiThreadExecutor @Inject constructor() : Executor {
+@AppScope class UiThreadExecutor @Inject constructor() : Executor {
   private var handler: Handler = Handler(Looper.getMainLooper())
 
   override fun execute(task: Runnable) {

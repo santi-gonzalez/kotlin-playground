@@ -7,15 +7,12 @@ import net.sgonzalez.kplayground.domain.usecase.GetTimeLineUseCase
 import net.sgonzalez.kplayground.domain.usecase.impl.AuthenticateUseCaseImpl
 import net.sgonzalez.kplayground.domain.usecase.impl.GetTimeLineUseCaseImpl
 
-@Module()
-class UseCaseModule {
-    @Provides
-    fun provideAuthenticateLineUseCase(useCase: AuthenticateUseCaseImpl): AuthenticateUseCase {
-        return useCase
-    }
+@Module() class UseCaseModule {
+  @Provides fun provideAuthenticateLineUseCase(useCase: AuthenticateUseCaseImpl): AuthenticateUseCase {
+    return useCase
+  }
 
-    @Provides
-    fun provideGetTimeLineUseCase(useCase: GetTimeLineUseCaseImpl): GetTimeLineUseCase {
-        return useCase
-    }
+  @Provides fun provideGetTimeLineUseCase(useCase: GetTimeLineUseCaseImpl): GetTimeLineUseCase {
+    return useCase
+  }
 }

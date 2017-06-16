@@ -34,7 +34,7 @@ class MainActivity : BaseActivity(), View {
     mainPresenter.detachView()
   }
 
-  override fun toast(text: String) {
+  override fun renderSnackbar(text: String) {
     showDebugInfo(text)
   }
 }

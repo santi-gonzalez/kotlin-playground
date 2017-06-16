@@ -4,6 +4,6 @@ abstract class MainPresenter : Presenter<MainPresenter.View>() {
   abstract fun doMockAction()
 
   interface View : Presenter.KView {
-    fun toast(text: String)
+    fun renderSnackbar(text: String)
   }
 }

@@ -7,8 +7,8 @@ import javax.inject.Inject
 
 class MainPresenterImpl @Inject constructor(val authenticateUseCase: AuthenticateUseCase,
                                             val getTimeLineUseCase: GetTimeLineUseCase) : MainPresenter() {
-    override fun doMockAction() {
-//        authenticateUseCase.ask { token -> println(token) }
-        getTimeLineUseCase.ask("Hello world") { text -> view?.toast(text) }
-    }
+  override fun doMockAction() {
+    authenticateUseCase.ask { oauthResponse -> println(oauthResponse.accessToken) }
+//        getTimeLineUseCase.ask("Hello world") { text -> view?.renderSnackbar(text) }
+  }
 }

@@ -6,8 +6,7 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
-@AppScope
-class WorkerThreadExecutor @Inject constructor() : Executor {
+@AppScope class WorkerThreadExecutor @Inject constructor() : Executor {
   private var cachedThreadPool: ExecutorService = Executors.newCachedThreadPool()
 
   override fun execute(task: Runnable) {

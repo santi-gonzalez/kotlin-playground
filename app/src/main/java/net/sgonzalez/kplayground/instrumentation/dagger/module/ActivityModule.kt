@@ -6,15 +6,12 @@ import dagger.Provides
 import net.sgonzalez.kplayground.presentation.presenter.MainPresenter
 import net.sgonzalez.kplayground.presentation.presenter.impl.MainPresenterImpl
 
-@Module()
-class ActivityModule(private val activity: Activity) {
-  @Provides
-  fun provideActivity(): Activity {
+@Module() class ActivityModule(private val activity: Activity) {
+  @Provides fun provideActivity(): Activity {
     return activity
   }
 
-  @Provides
-  fun provideMainPresenter(presenter: MainPresenterImpl): MainPresenter {
+  @Provides fun provideMainPresenter(presenter: MainPresenterImpl): MainPresenter {
     return presenter
   }
 }

@@ -4,6 +4,6 @@ import net.sgonzalez.kplayground.domain.usecase.AuthenticateUseCase
 import net.sgonzalez.kplayground.domain.usecase.GetTimeLineUseCase
 
 interface UseCaseProvider {
-    fun getAuthenticateUseCase(): AuthenticateUseCase
-    fun getTimeLineUseCase(): GetTimeLineUseCase
+  fun getAuthenticateUseCase(): AuthenticateUseCase
+  fun getTimeLineUseCase(): GetTimeLineUseCase
 }
