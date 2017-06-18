@@ -1,7 +1,7 @@
 package net.sgonzalez.kplayground.instrumentation.dagger.provider
 
-import net.sgonzalez.kplayground.data.repository.TwitterRepository
+import net.sgonzalez.kplayground.data.repository.MarvelRepository
 
 interface RepositoryProvider {
-  fun getTwitterRepository(): TwitterRepository
+  fun getMarvelRepository(): MarvelRepository
 }

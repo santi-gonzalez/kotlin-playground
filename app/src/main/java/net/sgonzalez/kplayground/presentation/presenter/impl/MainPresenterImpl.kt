@@ -1,14 +1,14 @@
 package net.sgonzalez.kplayground.presentation.presenter.impl
 
-import net.sgonzalez.kplayground.domain.usecase.AuthenticateUseCase
-import net.sgonzalez.kplayground.domain.usecase.GetTimeLineUseCase
+import net.sgonzalez.kplayground.domain.usecase.GetComicsUseCase
+import net.sgonzalez.kplayground.domain.usecase.GetComicUseCase
 import net.sgonzalez.kplayground.presentation.presenter.MainPresenter
 import javax.inject.Inject
 
-class MainPresenterImpl @Inject constructor(val authenticateUseCase: AuthenticateUseCase,
-                                            val getTimeLineUseCase: GetTimeLineUseCase) : MainPresenter() {
+class MainPresenterImpl @Inject constructor(val getComicsUseCase: GetComicsUseCase,
+                                            val getComicUseCase: GetComicUseCase) : MainPresenter() {
   override fun doMockAction() {
-    authenticateUseCase.ask { oauthResponse -> println(oauthResponse.accessToken) }
-//        getTimeLineUseCase.ask("Hello world") { text -> view?.renderSnackbar(text) }
+    getComicsUseCase.ask {}
+//        getComicUseCase.ask("Hello world") {}
   }
 }

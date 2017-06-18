@@ -4,30 +4,45 @@ import net.sgonzalez.kplayground.domain.execution.UiThreadExecutor
 import net.sgonzalez.kplayground.domain.execution.WorkerThreadExecutor
 import javax.inject.Inject
 
-abstract class UseCase<T> {
+abstract class UseCase<T>(open var error: ((Throwable) -> Unit)? = null) {
   @Inject lateinit var workerThreadExecutor: WorkerThreadExecutor
   @Inject lateinit var uiThreadExecutor: UiThreadExecutor
 
   fun launch() {
-    workerThreadExecutor.execute {
+    launchOnWorkerThread {
       try {
         val result = work()
-        uiThreadExecutor.execute {
+        launchOnUiThread {
           answer(result)
         }
-      } catch (exception: Exception) {
-        logError(exception, "exception raised while working:")
+      } catch (throwable: Throwable) {
+        logError(throwable, "exception raised while working:")
+        launchOnUiThread {
+          error(throwable)
+        }
       }
     }
   }
 
-  private fun logError(exception: Exception,
+  private fun launchOnWorkerThread(block: () -> Unit) {
+    workerThreadExecutor.execute(block)
+  }
+
+  private fun launchOnUiThread(block: () -> Unit) {
+    uiThreadExecutor.execute(block)
+  }
+
+  private fun logError(throwable: Throwable,
                        message: String? = null) {
     println(message)
-    exception.printStackTrace()
+    throwable.printStackTrace()
   }
 
   abstract fun work(): T
 
   abstract fun answer(result: T)
+
+  open fun error(throwable: Throwable) {
+    error?.invoke(throwable)
+  }
 }

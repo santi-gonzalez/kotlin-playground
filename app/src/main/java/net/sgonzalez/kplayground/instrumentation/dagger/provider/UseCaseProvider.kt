@@ -1,9 +1,9 @@
 package net.sgonzalez.kplayground.instrumentation.dagger.provider
 
-import net.sgonzalez.kplayground.domain.usecase.AuthenticateUseCase
-import net.sgonzalez.kplayground.domain.usecase.GetTimeLineUseCase
+import net.sgonzalez.kplayground.domain.usecase.GetComicsUseCase
+import net.sgonzalez.kplayground.domain.usecase.GetComicUseCase
 
 interface UseCaseProvider {
-  fun getAuthenticateUseCase(): AuthenticateUseCase
-  fun getTimeLineUseCase(): GetTimeLineUseCase
+  fun getAuthenticateUseCase(): GetComicsUseCase
+  fun getTimeLineUseCase(): GetComicUseCase
 }

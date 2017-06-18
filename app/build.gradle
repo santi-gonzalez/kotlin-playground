@@ -66,6 +66,9 @@ dependencies {
   compile "io.reactivex:rxandroid:${rxAndroidVersion}"
   compile "io.reactivex:rxkotlin:${rxKotlinVersion}"
 
+  // Apache
+  compile "commons-codec:commons-codec:${commonsCodecVersion}"
+
   testCompile "junit:junit:${junitVersion}"
   androidTestCompile("com.android.support.test.espresso:espresso-core:${espressoCoreVersion}", {
     exclude group: "com.android.support", module: "support-annotations"
