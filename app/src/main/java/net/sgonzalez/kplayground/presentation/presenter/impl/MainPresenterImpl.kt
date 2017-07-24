@@ -8,7 +8,9 @@ import javax.inject.Inject
 class MainPresenterImpl @Inject constructor(val getComicsUseCase: GetComicsUseCase,
                                             val getComicUseCase: GetComicUseCase) : MainPresenter() {
   override fun doMockAction() {
-    getComicsUseCase.ask {}
+    getComicsUseCase.ask {
+      println(it)
+    }
 //        getComicUseCase.ask("Hello world") {}
   }
 }

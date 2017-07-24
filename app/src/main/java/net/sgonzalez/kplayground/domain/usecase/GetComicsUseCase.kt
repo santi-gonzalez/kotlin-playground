@@ -1,7 +1,7 @@
 package net.sgonzalez.kplayground.domain.usecase
 
-import net.sgonzalez.kplayground.data.response.ComicsV1Response
+import net.sgonzalez.kplayground.domain.model.ComicModel
 
-abstract class GetComicsUseCase : UseCase<ComicsV1Response>() {
-  abstract fun ask(onResult: (ComicsV1Response) -> Unit)
+abstract class GetComicsUseCase : UseCase<List<ComicModel>>() {
+  abstract fun ask(onResult: (List<ComicModel>) -> Unit)
 }

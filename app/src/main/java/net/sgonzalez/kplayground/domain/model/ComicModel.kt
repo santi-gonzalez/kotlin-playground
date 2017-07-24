@@ -1,0 +1,16 @@
+package net.sgonzalez.kplayground.domain.model
+
+data class ComicModel(val id: String,
+                      val digitalId: Int,
+                      val title: String,
+                      val issueNumber: Int,
+                      val variantDescription: String,
+                      val description: String,
+                      val modified: String,
+                      val isbn: String,
+                      val upc: String,
+                      val diamondCode: String,
+                      val ean: String,
+                      val issn: String,
+                      val format: String,
+                      val pageCount: Int) : Model

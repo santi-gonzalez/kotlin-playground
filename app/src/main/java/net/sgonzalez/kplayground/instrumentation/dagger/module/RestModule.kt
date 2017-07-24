@@ -10,9 +10,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
-private const val ENDPOINT = "https://gateway.marvel.com/"
-
 @Module class RestModule @Inject constructor() {
+  companion object {
+    private const val ENDPOINT = "https://gateway.marvel.com/"
+  }
+
   @Provides fun provideOkHttpClient(): OkHttpClient {
     val httpLoggingInterceptor = HttpLoggingInterceptor()
     httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY

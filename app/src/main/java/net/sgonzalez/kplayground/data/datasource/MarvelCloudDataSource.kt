@@ -1,7 +1,7 @@
 package net.sgonzalez.kplayground.data.datasource
 
-import net.sgonzalez.kplayground.data.response.ComicsV1Response
+import net.sgonzalez.kplayground.domain.model.ComicModel
 
 interface MarvelCloudDataSource : DataSource {
-  fun getComics(): ComicsV1Response
+  fun getComics(): List<ComicModel>
 }
